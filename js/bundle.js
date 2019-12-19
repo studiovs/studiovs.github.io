@@ -8102,8 +8102,6 @@
               height: '100vh'
             });
             break;
-
-          default:
         }
       }
 
