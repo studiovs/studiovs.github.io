@@ -54,15 +54,35 @@
     </script>
 
     <link href="css/style.css" type="text/css" rel="stylesheet">
-    
+
     <script>
         document.documentElement.className = 'js';
+        document.addEventListener("DOMContentLoaded", function() {
+            var lazyImages = [].slice.call(document.querySelectorAll("img.lazy"));
+
+            if ("IntersectionObserver" in window) {
+                let lazyImageObserver = new IntersectionObserver(function(entries, observer) {
+                    entries.forEach(function(entry) {
+                        if (entry.isIntersecting) {
+                            let lazyImage = entry.target;
+                            lazyImage.src = lazyImage.dataset.src;
+                            lazyImage.classList.remove("lazy");
+                            lazyImageObserver.unobserve(lazyImage);
+                        }
+                    });
+                });
+
+                lazyImages.forEach(function(lazyImage) {
+                    lazyImageObserver.observe(lazyImage);
+                });
+            }
+        });
     </script>
-    
+
     <link rel="stylesheet" href="css/swiper.min.css">
 
 </head>
-   
+
 <body class="splash intro-splash">
     <div class="landscape-block">
         <div class="phone">
@@ -92,10 +112,10 @@
                 </svg>
             </div>
         </div>
-            
+
         <div class="main-content">
             <a class="logo" id="logo"><img class="mouse-hover" data-cursor-hover-class="cursor-btn" src="img/logo-studiovs8.svg" alt="Studiovs logo"></a>
- 
+
             <ul class="nav">
                 <li><a href="#" id="nav-work" class="mouse-hover" data-cursor-hover-class="cursor-btn" onclick="window.swiper.slideTo(1)">Work</a></li>
                 <li><a href="#" id="nav-about" class="mouse-hover" data-cursor-hover-class="cursor-btn" onclick="window.swiper.slideTo(10)">About</a></li>
@@ -109,7 +129,7 @@
                             <h1>Your creative partner<br>in this digital world.</h1>
                         </div>
                     </div>
-                            
+
                     <div id="content01" class="swiper-slide page work" data-blob="page-work page-work-mijnkantoorapp">
                         <div class="block project mijnkantoorapp active">
                             <div class="image">
@@ -122,7 +142,7 @@
                             </div>
                         </div>
                     </div>
-                            
+
                     <div id="content02" class="swiper-slide page work" data-blob="page-work page-work-sensu">
                         <div class="block project sensu active">
                             <div class="image">
@@ -135,7 +155,7 @@
                             </div>
                         </div>
                     </div>
-                    
+
                     <div id="content03" class="swiper-slide on-in-view page work" data-blob="page-work page-work-gjald">
                         <div class="block project gjald active">
                             <div class="image">
@@ -148,7 +168,7 @@
                             </div>
                         </div>
                     </div>
-                    
+
                     <div id="content04" class="swiper-slide page work" data-blob="page-work page-work-wiekiesjij">
                         <div class="block project wiekiesjij active">
                             <div class="image">
@@ -161,7 +181,7 @@
                             </div>
                         </div>
                     </div>
-                    
+
                     <div id="content05" class="swiper-slide page work" data-blob="page-work page-work-ubutler">
                         <div class="block project ubutler active">
                             <div class="image">
@@ -174,7 +194,7 @@
                             </div>
                         </div>
                     </div>
-                            
+
                     <div id="content06" class="swiper-slide page work" data-blob="page-work page-work-simplicate">
                         <div class="block project simplicate active">
                             <div class="image">
@@ -187,7 +207,7 @@
                             </div>
                         </div>
                     </div>
-                    
+
                     <div id="content07" class="swiper-slide page work" data-blob="page-work page-work-bakku">
                         <div class="block project bakku active">
                             <div class="image">
@@ -200,7 +220,7 @@
                             </div>
                         </div>
                     </div>
-                    
+
                     <div id="content08" class="swiper-slide page work" data-blob="page-work page-work-more">
                         <div class="block project more active">
                             <div class="text">
@@ -210,7 +230,7 @@
                             </div>
                         </div>
                     </div>
-                            
+
                     <div id="content09" class="swiper-slide page clients" data-blob="page-clients">
                         <div class="block">
                             <h2>We work<span class="small">(ed)</span> with the best</h2>
@@ -258,7 +278,7 @@
                             </div>
                         </div>
                     </div>
-                            
+
                     <div id="content10" class="swiper-slide page about" data-blob="page-about">
                         <div class="block">
                             <div class="text-slider">
@@ -298,7 +318,7 @@
                         <a class="page-nav left mouse-hover" onclick="window.aboutSwiper.slidePrev()" data-cursor-hover-class="cursor-btn"><span class="icon icon-arrow-long-left"></span></a>
                         <a class="page-nav right mouse-hover" onclick="window.aboutSwiper.slideNext()" data-cursor-hover-class="cursor-btn"><span class="icon icon-arrow-long-right"></span></a>
                     </div>
-                            
+
                     <div id="content11" class="swiper-slide page contact form-ope" data-blob="page-contact">
                         <div class="block">
                             <div class="text">
@@ -313,7 +333,7 @@
                                 <li><a data-cursor-hover-class="cursor-btn" class="mouse-hover twitter" href="https://twitter.com/STUDIOVSNL" target="_blank"><span class="icon icon-twitter"></span></a></li>
                             </ul>
                         </div>
-                    </div>    
+                    </div>
                 </div>
 
                 <div class="blob page-intro">
@@ -360,7 +380,7 @@
                 </div>
                 <div class="work-pagination">
                     <ul class="pagination">
-                        
+
                     </ul>
                 </div>
                 <a class="slide-nav up mouse-hover hidden" data-cursor-hover-class="cursor-btn" href="#" onclick="window.swiper.slidePrev()" data-classname="page-clients">
@@ -395,7 +415,7 @@
                         </div>
                     </div>
                 </a>
-                    
+
                 <!-- If we need scrollbar -->
                 <div class="swiper-scrollbar"></div>
             </div>
@@ -443,14 +463,14 @@
                                 <div class="wrapper">
                                     <div class="macbook">
                                         <img class="bg" src="img/work-macbook-container.png" alt="Macbook container">
-                                        <img class="lazy fg swiper-slide active" src="img/work-macbook-mijnkantoor-01.jpg" alt="Mijn Kantoor screenshot">
-                                        <img class="lazy fg swiper-slide" src="img/work-macbook-mijnkantoor-02.jpg" alt="Mijn Kantoor screenshot">
-                                        <img class="lazy fg swiper-slide" src="img/work-macbook-mijnkantoor-03.jpg" alt="Mijn Kantoor screenshot">
-                                        <img class="lazy fg swiper-slide" src="img/work-macbook-mijnkantoor-04.jpg" alt="Mijn Kantoor screenshot">
-                                        <img class="lazy fg swiper-slide" src="img/work-macbook-mijnkantoor-05.jpg" alt="Mijn Kantoor screenshot">
-                                        <img class="lazy fg swiper-slide" src="img/work-macbook-mijnkantoor-06.jpg" alt="Mijn Kantoor screenshot">
-                                        <img class="lazy fg swiper-slide" src="img/work-macbook-mijnkantoor-07.jpg" alt="Mijn Kantoor screenshot">
-                                        <img class="lazy fg swiper-slide" src="img/work-macbook-mijnkantoor-08.jpg" alt="Mijn Kantoor screenshot">
+                                        <img class="lazy fg swiper-slide active" data-src="img/work-macbook-mijnkantoor-01.jpg" alt="Mijn Kantoor screenshot">
+                                        <img class="lazy fg swiper-slide" data-src="img/work-macbook-mijnkantoor-02.jpg" alt="Mijn Kantoor screenshot">
+                                        <img class="lazy fg swiper-slide" data-src="img/work-macbook-mijnkantoor-03.jpg" alt="Mijn Kantoor screenshot">
+                                        <img class="lazy fg swiper-slide" data-src="img/work-macbook-mijnkantoor-04.jpg" alt="Mijn Kantoor screenshot">
+                                        <img class="lazy fg swiper-slide" data-src="img/work-macbook-mijnkantoor-05.jpg" alt="Mijn Kantoor screenshot">
+                                        <img class="lazy fg swiper-slide" data-src="img/work-macbook-mijnkantoor-06.jpg" alt="Mijn Kantoor screenshot">
+                                        <img class="lazy fg swiper-slide" data-src="img/work-macbook-mijnkantoor-07.jpg" alt="Mijn Kantoor screenshot">
+                                        <img class="lazy fg swiper-slide" data-src="img/work-macbook-mijnkantoor-08.jpg" alt="Mijn Kantoor screenshot">
                                     </div>
                                     <a class="nav prev mouse-hover" href="#" data-cursor-hover-class="cursor-btn"><span class="icon icon-arrow-long-left"></span></a>
                                     <a class="nav next mouse-hover" href="#" data-cursor-hover-class="cursor-btn"><span class="icon icon-arrow-long-right"></span></a>
@@ -513,15 +533,15 @@
                                 <div class="wrapper">
                                     <div class="iphone">
                                         <img class="bg" src="img/work-iphone-container.png" alt="iPhone container">
-                                        <img class="lazy fg" src="img/work-iphone-mijnkantoor-01.jpg" alt="Mijn kantoor screenshot">
+                                        <img class="lazy fg" data-src="img/work-iphone-mijnkantoor-01.jpg" alt="Mijn kantoor screenshot">
                                     </div>
                                     <div class="iphone">
                                         <img class="bg" src="img/work-iphone-container.png" alt="iPhone container">
-                                        <img class="lazy fg" src="img/work-iphone-mijnkantoor-02.jpg" alt="Mijn kantoor screenshot">
+                                        <img class="lazy fg" data-src="img/work-iphone-mijnkantoor-02.jpg" alt="Mijn kantoor screenshot">
                                     </div>
                                     <div class="iphone">
                                         <img class="bg" src="img/work-iphone-container.png" alt="iPhone container">
-                                        <img class="lazy fg" src="img/work-iphone-mijnkantoor-03.jpg" alt="Mijn kantoor screenshot">
+                                        <img class="lazy fg" data-src="img/work-iphone-mijnkantoor-03.jpg" alt="Mijn kantoor screenshot">
                                     </div>
                                 </div>
                             </div>
@@ -531,13 +551,13 @@
                                 <div class="left">
                                     <div class="ipad-landscape">
                                         <img class="bg" src="img/work-ipad-landscape-container.png" alt="iPad container">
-                                        <img class="lazy fg" src="img/work-ipad-landscape-mijnkantoor-01.jpg" alt="Mijn kantoor screenshot">
+                                        <img class="lazy fg" data-src="img/work-ipad-landscape-mijnkantoor-01.jpg" alt="Mijn kantoor screenshot">
                                     </div>
                                 </div>
                                 <div class="right">
                                     <div class="ipad-landscape">
                                         <img class="bg" src="img/work-ipad-landscape-container.png" alt="iPad container">
-                                        <img class="lazy fg" src="img/work-ipad-landscape-mijnkantoor-02.jpg" alt="Mijn kantoor screenshot">
+                                        <img class="lazy fg" data-src="img/work-ipad-landscape-mijnkantoor-02.jpg" alt="Mijn kantoor screenshot">
                                     </div>
                                 </div>
                             </div>
@@ -547,25 +567,25 @@
                                 <div class="right">
                                     <div class="ipad-landscape">
                                         <img class="bg" src="img/work-ipad-landscape-container.png" alt="iPad container">
-                                        <img class="lazy fg" src="img/work-ipad-landscape-mijnkantoor-03.jpg" alt="Mijn kantoor screenshot">
+                                        <img class="lazy fg" data-src="img/work-ipad-landscape-mijnkantoor-03.jpg" alt="Mijn kantoor screenshot">
                                     </div>
                                 </div>
                                 <div class="left">
                                     <div class="ipad-landscape">
                                         <img class="bg" src="img/work-ipad-landscape-container.png" alt="iPad container">
-                                        <img class="lazy fg" src="img/work-ipad-landscape-mijnkantoor-04.jpg" alt="Mijn kantoor screenshot">
+                                        <img class="lazy fg" data-src="img/work-ipad-landscape-mijnkantoor-04.jpg" alt="Mijn kantoor screenshot">
                                     </div>
                                 </div>
                             </div>
 
                             <div class="block work-looks in-view">
                                 <a class="logo moveable overlay" id="logo"><img class="mouse-hover" data-cursor-hover-class="cursor-btn" src="img/logo-studiovs8.svg" alt="Studiovs logo"></a>
-                                <img class="lazy" src="img/work-looks-imac-mijnkantoor-wallpaper.jpg" alt="Mijn Kantoor wallpaper">
+                                <img class="lazy" data-src="img/work-looks-imac-mijnkantoor-wallpaper.jpg" alt="Mijn Kantoor wallpaper">
                             </div>
 
                             <div class="block work-looks in-view">
                                 <a class="logo moveable overlay" id="logo"><img class="mouse-hover" data-cursor-hover-class="cursor-btn" src="img/logo-studiovs8.svg"></a>
-                                <img class="lazy" src="img/work-looks-imac-mijnkantoor.jpg" alt="Mijn Kantoor office">
+                                <img class="lazy" data-src="img/work-looks-imac-mijnkantoor.jpg" alt="Mijn Kantoor office">
                             </div>
 
                             <div class="block work-contact in-view">
@@ -621,16 +641,16 @@
                                 <div class="wrapper">
                                     <div class="macbook">
                                         <img class="bg" src="img/work-macbook-container.png" alt="MAcbook container">
-                                        <img class="lazy fg swiper-slide active" src="img/work-macbook-sensu-01.jpg" alt="Sensu screenshot">
-                                        <img class="lazy fg swiper-slide" src="img/work-macbook-sensu-02.jpg" alt="Sensu screenshot">
-                                        <img class="lazy fg swiper-slide" src="img/work-macbook-sensu-04.jpg" alt="Sensu screenshot">
-                                        <img class="lazy fg swiper-slide" src="img/work-macbook-sensu-03.jpg" alt="Sensu screenshot">
-                                        <img class="lazy fg swiper-slide" src="img/work-macbook-sensu-05.jpg" alt="Sensu screenshot">
-                                        <img class="lazy fg swiper-slide" src="img/work-macbook-sensu-06.jpg" alt="Sensu screenshot">
-                                        <img class="lazy fg swiper-slide" src="img/work-macbook-sensu-07.jpg" alt="Sensu screenshot">
-                                        <img class="lazy fg swiper-slide" src="img/work-macbook-sensu-08.jpg" alt="Sensu screenshot">
-                                        <img class="lazy fg swiper-slide" src="img/work-macbook-sensu-09.jpg" alt="Sensu screenshot">
-                                        <img class="lazy fg swiper-slide" src="img/work-macbook-sensu-10.jpg" alt="Sensu screenshot">
+                                        <img class="lazy fg swiper-slide active" data-src="img/work-macbook-sensu-01.jpg" alt="Sensu screenshot">
+                                        <img class="lazy fg swiper-slide" data-src="img/work-macbook-sensu-02.jpg" alt="Sensu screenshot">
+                                        <img class="lazy fg swiper-slide" data-src="img/work-macbook-sensu-04.jpg" alt="Sensu screenshot">
+                                        <img class="lazy fg swiper-slide" data-src="img/work-macbook-sensu-03.jpg" alt="Sensu screenshot">
+                                        <img class="lazy fg swiper-slide" data-src="img/work-macbook-sensu-05.jpg" alt="Sensu screenshot">
+                                        <img class="lazy fg swiper-slide" data-src="img/work-macbook-sensu-06.jpg" alt="Sensu screenshot">
+                                        <img class="lazy fg swiper-slide" data-src="img/work-macbook-sensu-07.jpg" alt="Sensu screenshot">
+                                        <img class="lazy fg swiper-slide" data-src="img/work-macbook-sensu-08.jpg" alt="Sensu screenshot">
+                                        <img class="lazy fg swiper-slide" data-src="img/work-macbook-sensu-09.jpg" alt="Sensu screenshot">
+                                        <img class="lazy fg swiper-slide" data-src="img/work-macbook-sensu-10.jpg" alt="Sensu screenshot">
                                     </div>
                                     <a class="nav prev mouse-hover" data-cursor-hover-class="cursor-btn" href="#"><span class="icon icon-arrow-long-left"></span></a>
                                     <a class="nav next mouse-hover" data-cursor-hover-class="cursor-btn" href="#"><span class="icon icon-arrow-long-right"></span></a>
@@ -697,15 +717,15 @@
                                 <div class="wrapper">
                                     <div class="iphone">
                                         <img class="bg" src="img/work-iphone-container.png" alt="iPhone container">
-                                        <img class="lazy fg" src="img/work-iphone-sensu-01.jpg" alt="Sensu screenshot">
+                                        <img class="lazy fg" data-src="img/work-iphone-sensu-01.jpg" alt="Sensu screenshot">
                                     </div>
                                     <div class="iphone">
                                         <img class="bg" src="img/work-iphone-container.png" alt="iPhone container">
-                                        <img class="lazy fg" src="img/work-iphone-sensu-02.jpg" alt="Sensu screenshot">
+                                        <img class="lazy fg" data-src="img/work-iphone-sensu-02.jpg" alt="Sensu screenshot">
                                     </div>
                                     <div class="iphone">
                                         <img class="bg" src="img/work-iphone-container.png" alt="iPhone container">
-                                        <img class="lazy fg" src="img/work-iphone-sensu-03.jpg" alt="Sensu screenshot">
+                                        <img class="lazy fg" data-src="img/work-iphone-sensu-03.jpg" alt="Sensu screenshot">
                                     </div>
                                 </div>
                             </div>
@@ -715,13 +735,13 @@
                                 <div class="left">
                                     <div class="ipad-landscape">
                                         <img class="bg" src="img/work-ipad-landscape-container.png" alt="iPad container">
-                                        <img class="lazy fg" src="img/work-ipad-landscape-sensu-01.jpg" alt="Sensu screenshot">
+                                        <img class="lazy fg" data-src="img/work-ipad-landscape-sensu-01.jpg" alt="Sensu screenshot">
                                     </div>
                                 </div>
                                 <div class="right">
                                     <div class="ipad-landscape">
                                         <img class="bg" src="img/work-ipad-landscape-container.png" alt="iPad container">
-                                        <img class="lazy fg" src="img/work-ipad-landscape-sensu-02.jpg" alt="Sensu screenshot">
+                                        <img class="lazy fg" data-src="img/work-ipad-landscape-sensu-02.jpg" alt="Sensu screenshot">
                                     </div>
                                 </div>
                             </div>
@@ -731,13 +751,13 @@
                                 <div class="right">
                                     <div class="ipad-landscape">
                                         <img class="bg" src="img/work-ipad-landscape-container.png" alt="iPad container">
-                                        <img class="lazy fg" src="img/work-ipad-landscape-sensu-03.jpg" alt="Sensu screenshot">
+                                        <img class="lazy fg" data-src="img/work-ipad-landscape-sensu-03.jpg" alt="Sensu screenshot">
                                     </div>
                                 </div>
                                 <div class="left">
                                     <div class="ipad-landscape">
                                         <img class="bg" src="img/work-ipad-landscape-container.png" alt="iPad container">
-                                        <img class="lazy fg" src="img/work-ipad-landscape-sensu-04.jpg" alt="Sensu screenshot">
+                                        <img class="lazy fg" data-src="img/work-ipad-landscape-sensu-04.jpg" alt="Sensu screenshot">
                                     </div>
                                 </div>
                             </div>
@@ -746,15 +766,15 @@
                                 <a class="logo moveable overlay" id="logo"><img class="mouse-hover" data-cursor-hover-class="cursor-btn" src="img/logo-studiovs8-black.svg" alt="Studiovs logo"></a>
                                 <div class="wrapper">
                                     <div class="browser">
-                                        <img class="lazy active" src="img/work-browser-sensu-01.jpg">
+                                        <img class="lazy active" data-src="img/work-browser-sensu-01.jpg">
                                     </div>
                                 </div>
                             </div>
 
                             <div class="block work-looks in-view">
                                 <a class="logo moveable overlay" id="logo"><img class="mouse-hover" data-cursor-hover-class="cursor-btn" src="img/logo-studiovs8.svg" alt="Studiovs logo"></a>
-                                <img class="lazy" src="img/work-looks-imac-sensu.jpg" alt="Sensu office">
-                            </div>      
+                                <img class="lazy" data-src="img/work-looks-imac-sensu.jpg" alt="Sensu office">
+                            </div>
 
                             <div class="block work-contact in-view">
                                 <a class="logo moveable overlay" id="logo"><img class="mouse-hover" data-cursor-hover-class="cursor-btn" src="img/logo-studiovs8-black.svg" alt="Studiovs logo"></a>
@@ -766,7 +786,7 @@
                         </div>
                     </div>
                 </div>
-            </div>           
+            </div>
 
             <div id="modal-3" class="modal work-detail-gjald" aria-hidden="true">
                 <div tabindex="-1">
@@ -809,13 +829,13 @@
                                 <div class="wrapper">
                                     <div class="macbook">
                                         <img class="bg" src="img/work-macbook-container.png" alt="Macbook container">
-                                        <img class="lazy fg swiper-slide active" src="img/work-macbook-gjald-01.jpg" alt="Gjald screenshot">
-                                        <img class="lazy fg swiper-slide" src="img/work-macbook-gjald-02.jpg" alt="Gjald screenshot">
-                                        <img class="lazy fg swiper-slide" src="img/work-macbook-gjald-03.jpg" alt="Gjald screenshot">
-                                        <img class="lazy fg swiper-slide" src="img/work-macbook-gjald-04.jpg" alt="Gjald screenshot">
-                                        <img class="lazy fg swiper-slide" src="img/work-macbook-gjald-05.jpg" alt="Gjald screenshot">
-                                        <img class="lazy fg swiper-slide" src="img/work-macbook-gjald-06.jpg" alt="Gjald screenshot">
-                                        <img class="lazy fg swiper-slide" src="img/work-macbook-gjald-07.jpg" alt="Gjald screenshot">
+                                        <img class="lazy fg swiper-slide active" data-src="img/work-macbook-gjald-01.jpg" alt="Gjald screenshot">
+                                        <img class="lazy fg swiper-slide" data-src="img/work-macbook-gjald-02.jpg" alt="Gjald screenshot">
+                                        <img class="lazy fg swiper-slide" data-src="img/work-macbook-gjald-03.jpg" alt="Gjald screenshot">
+                                        <img class="lazy fg swiper-slide" data-src="img/work-macbook-gjald-04.jpg" alt="Gjald screenshot">
+                                        <img class="lazy fg swiper-slide" data-src="img/work-macbook-gjald-05.jpg" alt="Gjald screenshot">
+                                        <img class="lazy fg swiper-slide" data-src="img/work-macbook-gjald-06.jpg" alt="Gjald screenshot">
+                                        <img class="lazy fg swiper-slide" data-src="img/work-macbook-gjald-07.jpg" alt="Gjald screenshot">
                                     </div>
                                     <a class="nav prev mouse-hover" data-cursor-hover-class="cursor-btn" href="#"><span class="icon icon-arrow-long-left"></span></a>
                                     <a class="nav next mouse-hover" data-cursor-hover-class="cursor-btn" href="#"><span class="icon icon-arrow-long-right"></span></a>
@@ -863,13 +883,13 @@
                                 <div class="left">
                                     <div class="ipad-landscape">
                                         <img class="bg" src="img/work-ipad-landscape-container.png" alt="iPad container">
-                                        <img class="lazy fg" src="img/work-ipad-landscape-gjald-01.jpg" alt="Gjald screenshot">
+                                        <img class="lazy fg" data-src="img/work-ipad-landscape-gjald-01.jpg" alt="Gjald screenshot">
                                     </div>
                                 </div>
                                 <div class="right">
                                     <div class="ipad-portrait">
                                         <img class="bg" src="img/work-ipad-portrait-container.png" alt="iPad container">
-                                        <img class="lazy fg" src="img/work-ipad-portrait-gjald-02.jpg" alt="Gjald screenshot">
+                                        <img class="lazy fg" data-src="img/work-ipad-portrait-gjald-02.jpg" alt="Gjald screenshot">
                                     </div>
                                 </div>
                             </div>
@@ -879,15 +899,15 @@
                                 <div class="wrapper">
                                     <div class="iphone">
                                         <img class="bg" src="img/work-iphone-container.png" alt="iPhone container">
-                                        <img class="lazy fg" src="img/work-iphone-gjald-01.jpg" alt="Gjald screenshot">
+                                        <img class="lazy fg" data-src="img/work-iphone-gjald-01.jpg" alt="Gjald screenshot">
                                     </div>
                                     <div class="iphone">
                                         <img class="bg" src="img/work-iphone-container.png" alt="iPhone container">
-                                        <img class="lazy fg" src="img/work-iphone-gjald-02.jpg" alt="Gjald screenshot">
+                                        <img class="lazy fg" data-src="img/work-iphone-gjald-02.jpg" alt="Gjald screenshot">
                                     </div>
                                     <div class="iphone">
                                         <img class="bg" src="img/work-iphone-container.png" alt="iPhone container">
-                                        <img class="lazy fg" src="img/work-iphone-gjald-03.jpg" alt="Gjald screenshot">
+                                        <img class="lazy fg" data-src="img/work-iphone-gjald-03.jpg" alt="Gjald screenshot">
                                     </div>
                                 </div>
                             </div>
@@ -901,16 +921,16 @@
                                         <li><a class="tab mouse-hover" data-tab-target="browser-tab-3" data-cursor-hover-class="cursor-btn" href="#">news</a></li>
                                     </ul>
                                     <div class="browser">
-                                        <img class="lazy tab-pane active" src="img/work-browser-gjald-01.jpg" alt="Gjald screenshot">
-                                        <img class="lazy tab-pane" src="img/work-browser-gjald-02.jpg" alt="Gjald screenshot">
-                                        <img class="lazy tab-pane" src="img/work-browser-gjald-03.jpg" alt="Gjald screenshot">
+                                        <img class="lazy tab-pane active" data-src="img/work-browser-gjald-01.jpg" alt="Gjald screenshot">
+                                        <img class="lazy tab-pane" data-src="img/work-browser-gjald-02.jpg" alt="Gjald screenshot">
+                                        <img class="lazy tab-pane" data-src="img/work-browser-gjald-03.jpg" alt="Gjald screenshot">
                                     </div>
                                 </div>
                             </div>
 
                             <div class="block work-looks in-view">
                                 <a class="logo moveable overlay" id="logo"><img class="mouse-hover" data-cursor-hover-class="cursor-btn" src="img/logo-studiovs8-black.svg" alt="Studiovs logo"></a>
-                                <img class="lazy" src="img/work-looks-imac-gjald.jpg" alt="Gjald office">
+                                <img class="lazy" data-src="img/work-looks-imac-gjald.jpg" alt="Gjald office">
                             </div>
 
                             <div class="block work-contact in-view">
@@ -967,19 +987,19 @@
                                 <div class="wrapper">
                                     <div class="macbook">
                                         <img class="bg" src="img/work-macbook-container.png" alt="Macbook container">
-                                        <img class="lazy fg swiper-slide active" src="img/work-macbook-wiekiesjij-01.jpg" alt="Wiekiesjij screenshot">
-                                        <img class="lazy fg swiper-slide" src="img/work-macbook-wiekiesjij-02.jpg" alt="Wiekiesjij screenshot">
-                                        <img class="lazy fg swiper-slide" src="img/work-macbook-wiekiesjij-03.jpg" alt="Wiekiesjij screenshot">
-                                        <img class="lazy fg swiper-slide" src="img/work-macbook-wiekiesjij-04.jpg" alt="Wiekiesjij screenshot">
-                                        <img class="lazy fg swiper-slide" src="img/work-macbook-wiekiesjij-05.jpg" alt="Wiekiesjij screenshot">
-                                        <img class="lazy fg swiper-slide" src="img/work-macbook-wiekiesjij-06.jpg" alt="Wiekiesjij screenshot">
-                                        <img class="lazy fg swiper-slide" src="img/work-macbook-wiekiesjij-07.jpg" alt="Wiekiesjij screenshot">
-                                        <img class="lazy fg swiper-slide" src="img/work-macbook-wiekiesjij-08.jpg" alt="Wiekiesjij screenshot">
-                                        <img class="lazy fg swiper-slide" src="img/work-macbook-wiekiesjij-09.jpg" alt="Wiekiesjij screenshot">
-                                        <img class="lazy fg swiper-slide" src="img/work-macbook-wiekiesjij-10.jpg" alt="Wiekiesjij screenshot">
-                                        <img class="lazy fg swiper-slide" src="img/work-macbook-wiekiesjij-11.jpg" alt="Wiekiesjij screenshot">
-                                        <img class="lazy fg swiper-slide" src="img/work-macbook-wiekiesjij-12.jpg" alt="Wiekiesjij screenshot">
-                                        <img class="lazy fg swiper-slide" src="img/work-macbook-wiekiesjij-13.jpg" alt="Wiekiesjij screenshot">
+                                        <img class="lazy fg swiper-slide active" data-src="img/work-macbook-wiekiesjij-01.jpg" alt="Wiekiesjij screenshot">
+                                        <img class="lazy fg swiper-slide" data-src="img/work-macbook-wiekiesjij-02.jpg" alt="Wiekiesjij screenshot">
+                                        <img class="lazy fg swiper-slide" data-src="img/work-macbook-wiekiesjij-03.jpg" alt="Wiekiesjij screenshot">
+                                        <img class="lazy fg swiper-slide" data-src="img/work-macbook-wiekiesjij-04.jpg" alt="Wiekiesjij screenshot">
+                                        <img class="lazy fg swiper-slide" data-src="img/work-macbook-wiekiesjij-05.jpg" alt="Wiekiesjij screenshot">
+                                        <img class="lazy fg swiper-slide" data-src="img/work-macbook-wiekiesjij-06.jpg" alt="Wiekiesjij screenshot">
+                                        <img class="lazy fg swiper-slide" data-src="img/work-macbook-wiekiesjij-07.jpg" alt="Wiekiesjij screenshot">
+                                        <img class="lazy fg swiper-slide" data-src="img/work-macbook-wiekiesjij-08.jpg" alt="Wiekiesjij screenshot">
+                                        <img class="lazy fg swiper-slide" data-src="img/work-macbook-wiekiesjij-09.jpg" alt="Wiekiesjij screenshot">
+                                        <img class="lazy fg swiper-slide" data-src="img/work-macbook-wiekiesjij-10.jpg" alt="Wiekiesjij screenshot">
+                                        <img class="lazy fg swiper-slide" data-src="img/work-macbook-wiekiesjij-11.jpg" alt="Wiekiesjij screenshot">
+                                        <img class="lazy fg swiper-slide" data-src="img/work-macbook-wiekiesjij-12.jpg" alt="Wiekiesjij screenshot">
+                                        <img class="lazy fg swiper-slide" data-src="img/work-macbook-wiekiesjij-13.jpg" alt="Wiekiesjij screenshot">
                                     </div>
                                     <a class="nav prev mouse-hover" data-cursor-hover-class="cursor-btn" href="#"><span class="icon icon-arrow-long-left"></span></a>
                                     <a class="nav next mouse-hover" data-cursor-hover-class="cursor-btn" href="#"><span class="icon icon-arrow-long-right"></span></a>
@@ -1032,13 +1052,13 @@
                                 <div class="left">
                                     <div class="ipad-landscape">
                                         <img class="bg" src="img/work-ipad-landscape-container.png" alt="iPad container">
-                                        <img class="lazy fg" src="img/work-ipad-landscape-wiekiesjij-01.jpg" alt="Wiekiesjij screenshot">
+                                        <img class="lazy fg" data-src="img/work-ipad-landscape-wiekiesjij-01.jpg" alt="Wiekiesjij screenshot">
                                     </div>
                                 </div>
                                 <div class="right">
                                     <div class="ipad-portrait">
                                         <img class="bg" src="img/work-ipad-portrait-container.png" alt="iPad container">
-                                        <img class="lazy fg" src="img/work-ipad-portrait-wiekiesjij-01.jpg" alt="Wiekiesjij screenshot">
+                                        <img class="lazy fg" data-src="img/work-ipad-portrait-wiekiesjij-01.jpg" alt="Wiekiesjij screenshot">
                                     </div>
                                 </div>
                             </div>
@@ -1048,15 +1068,15 @@
                                 <div class="wrapper">
                                     <div class="iphone">
                                         <img class="bg" src="img/work-iphone-container.png" alt="iPhone container">
-                                        <img class="lazy fg" src="img/work-iphone-wiekiesjij-01.jpg" alt="Wiekiesjij screenshot">
+                                        <img class="lazy fg" data-src="img/work-iphone-wiekiesjij-01.jpg" alt="Wiekiesjij screenshot">
                                     </div>
                                     <div class="iphone">
                                         <img class="bg" src="img/work-iphone-container.png" alt="iPhone container">
-                                        <img class="lazy fg" src="img/work-iphone-wiekiesjij-02.jpg" alt="Wiekiesjij screenshot">
+                                        <img class="lazy fg" data-src="img/work-iphone-wiekiesjij-02.jpg" alt="Wiekiesjij screenshot">
                                     </div>
                                     <div class="iphone">
                                         <img class="bg" src="img/work-iphone-container.png" alt="iPhone container">
-                                        <img class="lazy fg" src="img/work-iphone-wiekiesjij-03.jpg" alt="Wiekiesjij screenshot">
+                                        <img class="lazy fg" data-src="img/work-iphone-wiekiesjij-03.jpg" alt="Wiekiesjij screenshot">
                                     </div>
                                 </div>
                             </div>
@@ -1066,15 +1086,15 @@
                                 <div class="wrapper">
                                     <div class="iphone">
                                         <img class="bg" src="img/work-iphone-container.png" alt="iPhone container">
-                                        <img class="lazy fg" src="img/work-iphone-wiekiesjij-04.jpg" alt="Wiekiesjij screenshot">
+                                        <img class="lazy fg" data-src="img/work-iphone-wiekiesjij-04.jpg" alt="Wiekiesjij screenshot">
                                     </div>
                                     <div class="iphone">
                                         <img class="bg" src="img/work-iphone-container.png" alt="iPhone container">
-                                        <img class="lazy fg" src="img/work-iphone-wiekiesjij-05.jpg" alt="Wiekiesjij screenshot">
+                                        <img class="lazy fg" data-src="img/work-iphone-wiekiesjij-05.jpg" alt="Wiekiesjij screenshot">
                                     </div>
                                     <div class="iphone">
                                         <img class="bg" src="img/work-iphone-container.png" alt="iPhone container">
-                                        <img class="lazy fg" src="img/work-iphone-wiekiesjij-06.jpg" alt="Wiekiesjij screenshot">
+                                        <img class="lazy fg" data-src="img/work-iphone-wiekiesjij-06.jpg" alt="Wiekiesjij screenshot">
                                     </div>
                                 </div>
                             </div>
@@ -1083,12 +1103,12 @@
                                 <a class="logo moveable overlay" id="logo"><img class="mouse-hover" data-cursor-hover-class="cursor-btn" src="img/logo-studiovs8-black.svg" alt="Studiovs logo"></a>
                                 <div class="left">
                                     <div class="ipad-landscape">
-                                        <img class="lazy img" src="img/work-image-wiekiesjij-01.jpg" alt="Wiekiesjij flyer">
+                                        <img class="lazy img" data-src="img/work-image-wiekiesjij-01.jpg" alt="Wiekiesjij flyer">
                                     </div>
                                 </div>
                                 <div class="right">
                                     <div class="ipad-landscape">
-                                        <img class="lazy img" src="img/work-image-wiekiesjij-02.jpg" alt="Wiekiesjij flyer">
+                                        <img class="lazy img" data-src="img/work-image-wiekiesjij-02.jpg" alt="Wiekiesjij flyer">
                                     </div>
                                 </div>
                             </div>
@@ -1097,19 +1117,19 @@
                                 <a class="logo moveable overlay" id="logo"><img class="mouse-hover" data-cursor-hover-class="cursor-btn" src="img/logo-studiovs8-black.svg" alt="Studiovs logo"></a>
                                 <div class="right">
                                     <div class="ipad-landscape">
-                                        <img class="lazy img" src="img/work-image-wiekiesjij-03.jpg" alt="Wiekiesjij flyer">
+                                        <img class="lazy img" data-src="img/work-image-wiekiesjij-03.jpg" alt="Wiekiesjij flyer">
                                     </div>
                                 </div>
                                 <div class="left">
                                     <div class="ipad-landscape">
-                                        <img class="lazy img" src="img/work-image-wiekiesjij-04.jpg" alt="Wiekiesjij flyer">
+                                        <img class="lazy img" data-src="img/work-image-wiekiesjij-04.jpg" alt="Wiekiesjij flyer">
                                     </div>
                                 </div>
                             </div>
 
                             <div class="block work-looks in-view">
                                 <a class="logo moveable overlay" id="logo"><img class="mouse-hover" data-cursor-hover-class="cursor-btn" src="img/logo-studiovs8.svg" alt="Studiovs logo"></a>
-                                <img class="lazy" src="img/work-looks-imac-wiekiesjij.jpg" alt="Wiekiesjij office">
+                                <img class="lazy" data-src="img/work-looks-imac-wiekiesjij.jpg" alt="Wiekiesjij office">
                             </div>
 
                             <div class="block work-contact in-view">
@@ -1161,12 +1181,12 @@
                                 <div class="wrapper">
                                     <div class="macbook">
                                         <img class="bg" src="img/work-macbook-container.png" alt="Macbook container">
-                                        <img class="lazy fg swiper-slide active" src="img/work-macbook-ubutler-01.jpg" alt="uButler screenshot">
-                                        <img class="lazy fg swiper-slide" src="img/work-macbook-ubutler-02.jpg" alt="uButler screenshot">
-                                        <img class="lazy fg swiper-slide" src="img/work-macbook-ubutler-03.jpg" alt="uButler screenshot">
-                                        <img class="lazy fg swiper-slide" src="img/work-macbook-ubutler-04.jpg" alt="uButler screenshot">
-                                        <img class="lazy fg swiper-slide" src="img/work-macbook-ubutler-05.jpg" alt="uButler screenshot">
-                                        <img class="lazy fg swiper-slide" src="img/work-macbook-ubutler-06.jpg" alt="uButler screenshot">
+                                        <img class="lazy fg swiper-slide active" data-src="img/work-macbook-ubutler-01.jpg" alt="uButler screenshot">
+                                        <img class="lazy fg swiper-slide" data-src="img/work-macbook-ubutler-02.jpg" alt="uButler screenshot">
+                                        <img class="lazy fg swiper-slide" data-src="img/work-macbook-ubutler-03.jpg" alt="uButler screenshot">
+                                        <img class="lazy fg swiper-slide" data-src="img/work-macbook-ubutler-04.jpg" alt="uButler screenshot">
+                                        <img class="lazy fg swiper-slide" data-src="img/work-macbook-ubutler-05.jpg" alt="uButler screenshot">
+                                        <img class="lazy fg swiper-slide" data-src="img/work-macbook-ubutler-06.jpg" alt="uButler screenshot">
                                     </div>
                                     <a class="nav prev mouse-hover" data-cursor-hover-class="cursor-btn" href="#"><span class="icon icon-arrow-long-left"></span></a>
                                     <a class="nav next mouse-hover" data-cursor-hover-class="cursor-btn" href="#"><span class="icon icon-arrow-long-right"></span></a>
@@ -1186,15 +1206,15 @@
                                 <div class="wrapper">
                                     <div class="iphone">
                                         <img class="bg" src="img/work-iphone-container.png" alt="iPhone container">
-                                        <img class="lazy fg" src="img/work-iphone-ubutler-01.jpg" alt="uButler screenshot">
+                                        <img class="lazy fg" data-src="img/work-iphone-ubutler-01.jpg" alt="uButler screenshot">
                                     </div>
                                     <div class="iphone">
                                         <img class="bg" src="img/work-iphone-container.png" alt="iPhone container">
-                                        <img class="lazy fg" src="img/work-iphone-ubutler-02.jpg" alt="uButler screenshot">
+                                        <img class="lazy fg" data-src="img/work-iphone-ubutler-02.jpg" alt="uButler screenshot">
                                     </div>
                                     <div class="iphone">
                                         <img class="bg" src="img/work-iphone-container.png" alt="iPhone container">
-                                        <img class="lazy fg" src="img/work-iphone-ubutler-03.jpg" alt="uButler screenshot">
+                                        <img class="lazy fg" data-src="img/work-iphone-ubutler-03.jpg" alt="uButler screenshot">
                                     </div>
                                 </div>
                             </div>
@@ -1203,19 +1223,19 @@
                                 <a class="logo moveable overlay" id="logo"><img class="mouse-hover" data-cursor-hover-class="cursor-btn" src="img/logo-studiovs8-black.svg" alt="Studiovs logo"></a>
                                 <div class="left">
                                     <div class="ipad-landscape">
-                                        <img class="lazy img" src="img/work-image-ubutler-01.jpg" alt="uButler flyer">
+                                        <img class="lazy img" data-src="img/work-image-ubutler-01.jpg" alt="uButler flyer">
                                     </div>
                                 </div>
                                 <div class="right">
                                     <div class="ipad-landscape">
-                                        <img class="lazy img" src="img/work-image-ubutler-02.jpg" alt="uButler flyer">
+                                        <img class="lazy img" data-src="img/work-image-ubutler-02.jpg" alt="uButler flyer">
                                     </div>
                                 </div>
                             </div>
 
                             <div class="block work-looks in-view">
                                 <a class="logo moveable overlay" id="logo"><img class="mouse-hover" data-cursor-hover-class="cursor-btn" src="img/logo-studiovs8.svg" alt="Studiovs logo"></a>
-                                <img class="lazy" src="img/work-looks-iphone-ubutler.jpg" alt="uButler office">
+                                <img class="lazy" data-src="img/work-looks-iphone-ubutler.jpg" alt="uButler office">
                             </div>
 
                             <div class="block work-contact in-view">
@@ -1271,16 +1291,16 @@
                                 <div class="wrapper">
                                     <div class="macbook">
                                         <img class="bg" src="img/work-macbook-container.png" alt="Macbook container">
-                                        <img class="lazy fg swiper-slide active" src="img/work-macbook-simplicate-01.jpg" alt="Simplicate screenshot">
-                                        <img class="lazy fg swiper-slide" src="img/work-macbook-simplicate-02.jpg" alt="Simplicate screenshot">
-                                        <img class="lazy fg swiper-slide" src="img/work-macbook-simplicate-03.jpg" alt="Simplicate screenshot">
-                                        <img class="lazy fg swiper-slide" src="img/work-macbook-simplicate-04.jpg" alt="Simplicate screenshot">
-                                        <img class="lazy fg swiper-slide" src="img/work-macbook-simplicate-05.jpg" alt="Simplicate screenshot">
-                                        <img class="lazy fg swiper-slide" src="img/work-macbook-simplicate-06.jpg" alt="Simplicate screenshot">
-                                        <img class="lazy fg swiper-slide" src="img/work-macbook-simplicate-07.jpg" alt="Simplicate screenshot">
-                                        <img class="lazy fg swiper-slide" src="img/work-macbook-simplicate-08.jpg" alt="Simplicate screenshot">
-                                        <img class="lazy fg swiper-slide" src="img/work-macbook-simplicate-09.jpg" alt="Simplicate screenshot">
-                                        <img class="lazy fg swiper-slide" src="img/work-macbook-simplicate-10.jpg" alt="Simplicate screenshot">
+                                        <img class="lazy fg swiper-slide active" data-src="img/work-macbook-simplicate-01.jpg" alt="Simplicate screenshot">
+                                        <img class="lazy fg swiper-slide" data-src="img/work-macbook-simplicate-02.jpg" alt="Simplicate screenshot">
+                                        <img class="lazy fg swiper-slide" data-src="img/work-macbook-simplicate-03.jpg" alt="Simplicate screenshot">
+                                        <img class="lazy fg swiper-slide" data-src="img/work-macbook-simplicate-04.jpg" alt="Simplicate screenshot">
+                                        <img class="lazy fg swiper-slide" data-src="img/work-macbook-simplicate-05.jpg" alt="Simplicate screenshot">
+                                        <img class="lazy fg swiper-slide" data-src="img/work-macbook-simplicate-06.jpg" alt="Simplicate screenshot">
+                                        <img class="lazy fg swiper-slide" data-src="img/work-macbook-simplicate-07.jpg" alt="Simplicate screenshot">
+                                        <img class="lazy fg swiper-slide" data-src="img/work-macbook-simplicate-08.jpg" alt="Simplicate screenshot">
+                                        <img class="lazy fg swiper-slide" data-src="img/work-macbook-simplicate-09.jpg" alt="Simplicate screenshot">
+                                        <img class="lazy fg swiper-slide" data-src="img/work-macbook-simplicate-10.jpg" alt="Simplicate screenshot">
                                     </div>
                                     <a class="nav prev mouse-hover" data-cursor-hover-class="cursor-btn" href="#"><span class="icon icon-arrow-long-left"></span></a>
                                     <a class="nav next mouse-hover" data-cursor-hover-class="cursor-btn" href="#"><span class="icon icon-arrow-long-right"></span></a>
@@ -1346,13 +1366,13 @@
                                 <div class="left">
                                     <div class="ipad-landscape">
                                         <img class="bg" src="img/work-ipad-landscape-container.png" alt="iPad container">
-                                        <img class="lazy fg" src="img/work-ipad-landscape-simplicate-01.jpg" alt="Simplicate screenshot">
+                                        <img class="lazy fg" data-src="img/work-ipad-landscape-simplicate-01.jpg" alt="Simplicate screenshot">
                                     </div>
                                 </div>
                                 <div class="right">
                                     <div class="ipad-landscape">
                                         <img class="bg" src="img/work-ipad-landscape-container.png" alt="iPad container">
-                                        <img class="lazy fg" src="img/work-ipad-landscape-simplicate-02.jpg" alt="Simplicate screenshot">
+                                        <img class="lazy fg" data-src="img/work-ipad-landscape-simplicate-02.jpg" alt="Simplicate screenshot">
                                     </div>
                                 </div>
                             </div>
@@ -1362,20 +1382,20 @@
                                 <div class="right">
                                     <div class="ipad-landscape">
                                         <img class="bg" src="img/work-ipad-landscape-container.png" alt="iPad container">
-                                        <img class="lazy fg" src="img/work-ipad-landscape-simplicate-03.jpg" alt="Simplicate screenshot">
+                                        <img class="lazy fg" data-src="img/work-ipad-landscape-simplicate-03.jpg" alt="Simplicate screenshot">
                                     </div>
                                 </div>
                                 <div class="left">
                                     <div class="ipad-landscape">
                                         <img class="bg" src="img/work-ipad-landscape-container.png" alt="iPad container">
-                                        <img class="lazy fg" src="img/work-ipad-landscape-simplicate-04.jpg" alt="Simplicate screenshot">
+                                        <img class="lazy fg" data-src="img/work-ipad-landscape-simplicate-04.jpg" alt="Simplicate screenshot">
                                     </div>
                                 </div>
                             </div>
 
                             <div class="block work-looks in-view">
                                 <a class="logo moveable overlay" id="logo"><img class="mouse-hover" data-cursor-hover-class="cursor-btn" src="img/logo-studiovs8.svg" alt="Studiovs logo"></a>
-                                <img class="lazy" src="img/work-looks-imac-simplicate.jpg" alt="Simplicate office">
+                                <img class="lazy" data-src="img/work-looks-imac-simplicate.jpg" alt="Simplicate office">
                             </div>
 
                             <div class="block work-contact in-view">
@@ -1430,13 +1450,13 @@
                                 <div class="wrapper">
                                     <div class="macbook">
                                         <img class="bg" src="img/work-macbook-container.png" alt="Macbook container">
-                                        <img class="lazy fg swiper-slide active" src="img/work-macbook-bakku-01.jpg" alt="Bakku screenshot">
-                                        <img class="lazy fg swiper-slide" src="img/work-macbook-bakku-02.jpg" alt="Bakku screenshot">
-                                        <img class="lazy fg swiper-slide" src="img/work-macbook-bakku-03.jpg" alt="Bakku screenshot">
-                                        <img class="lazy fg swiper-slide" src="img/work-macbook-bakku-04.jpg" alt="Bakku screenshot">
-                                        <img class="lazy fg swiper-slide" src="img/work-macbook-bakku-05.jpg" alt="Bakku screenshot">
-                                        <img class="lazy fg swiper-slide" src="img/work-macbook-bakku-06.jpg" alt="Bakku screenshot">
-                                        <img class="lazy fg swiper-slide" src="img/work-macbook-bakku-07.jpg" alt="Bakku screenshot">
+                                        <img class="lazy fg swiper-slide active" data-src="img/work-macbook-bakku-01.jpg" alt="Bakku screenshot">
+                                        <img class="lazy fg swiper-slide" data-src="img/work-macbook-bakku-02.jpg" alt="Bakku screenshot">
+                                        <img class="lazy fg swiper-slide" data-src="img/work-macbook-bakku-03.jpg" alt="Bakku screenshot">
+                                        <img class="lazy fg swiper-slide" data-src="img/work-macbook-bakku-04.jpg" alt="Bakku screenshot">
+                                        <img class="lazy fg swiper-slide" data-src="img/work-macbook-bakku-05.jpg" alt="Bakku screenshot">
+                                        <img class="lazy fg swiper-slide" data-src="img/work-macbook-bakku-06.jpg" alt="Bakku screenshot">
+                                        <img class="lazy fg swiper-slide" data-src="img/work-macbook-bakku-07.jpg" alt="Bakku screenshot">
                                     </div>
                                     <a class="nav prev mouse-hover" data-cursor-hover-class="cursor-btn" href="#"><span class="icon icon-arrow-long-left"></span></a>
                                     <a class="nav next mouse-hover" data-cursor-hover-class="cursor-btn" href="#"><span class="icon icon-arrow-long-right"></span></a>
@@ -1486,13 +1506,13 @@
                                 <div class="left">
                                     <div class="ipad-landscape">
                                         <img class="bg" src="img/work-ipad-landscape-container.png" alt="iPad container">
-                                        <img class="lazy fg" src="img/work-ipad-landscape-bakku-01.jpg" alt="Bakku screenshot">
+                                        <img class="lazy fg" data-src="img/work-ipad-landscape-bakku-01.jpg" alt="Bakku screenshot">
                                     </div>
                                 </div>
                                 <div class="right">
                                     <div class="ipad-landscape">
                                         <img class="bg" src="img/work-ipad-landscape-container.png" alt="iPad container">
-                                        <img class="lazy fg" src="img/work-ipad-landscape-bakku-02.jpg" alt="Bakku screenshot">
+                                        <img class="lazy fg" data-src="img/work-ipad-landscape-bakku-02.jpg" alt="Bakku screenshot">
                                     </div>
                                 </div>
                             </div>
@@ -1511,21 +1531,21 @@
                                         <li><a class="tab mouse-hover" data-tab-target="browser-tab-8" data-cursor-hover-class="cursor-btn" href="#">instellingen</a></li>
                                     </ul>
                                     <div class="browser">
-                                        <img class="lazy tab-pane active" src="img/work-macbook-bakku-01.jpg" alt="Bakku screenshot">
-                                        <img class="lazy tab-pane" src="img/work-macbook-bakku-08.jpg" alt="Bakku screenshot">
-                                        <img class="lazy tab-pane" src="img/work-macbook-bakku-09.jpg" alt="Bakku screenshot">
-                                        <img class="lazy tab-pane" src="img/work-macbook-bakku-10.jpg" alt="Bakku screenshot">
-                                        <img class="lazy tab-pane" src="img/work-macbook-bakku-11.jpg" alt="Bakku screenshot">
-                                        <img class="lazy tab-pane" src="img/work-macbook-bakku-05.jpg" alt="Bakku screenshot">
-                                        <img class="lazy tab-pane" src="img/work-macbook-bakku-12.jpg" alt="Bakku screenshot">
-                                        <img class="lazy tab-pane" src="img/work-macbook-bakku-07.jpg" alt="Bakku screenshot">
+                                        <img class="lazy tab-pane active" data-src="img/work-macbook-bakku-01.jpg" alt="Bakku screenshot">
+                                        <img class="lazy tab-pane" data-src="img/work-macbook-bakku-08.jpg" alt="Bakku screenshot">
+                                        <img class="lazy tab-pane" data-src="img/work-macbook-bakku-09.jpg" alt="Bakku screenshot">
+                                        <img class="lazy tab-pane" data-src="img/work-macbook-bakku-10.jpg" alt="Bakku screenshot">
+                                        <img class="lazy tab-pane" data-src="img/work-macbook-bakku-11.jpg" alt="Bakku screenshot">
+                                        <img class="lazy tab-pane" data-src="img/work-macbook-bakku-05.jpg" alt="Bakku screenshot">
+                                        <img class="lazy tab-pane" data-src="img/work-macbook-bakku-12.jpg" alt="Bakku screenshot">
+                                        <img class="lazy tab-pane" data-src="img/work-macbook-bakku-07.jpg" alt="Bakku screenshot">
                                     </div>
                                 </div>
                             </div>
 
                             <div class="block work-looks in-view">
                                 <a class="logo moveable overlay" id="logo"><img class="mouse-hover" data-cursor-hover-class="cursor-btn" src="img/logo-studiovs8-black.svg" alt="Studiovs logo"></a>
-                                <img class="lazy" src="img/work-looks-imac-bakku.jpg" alt="Bakku office">
+                                <img class="lazy" data-src="img/work-looks-imac-bakku.jpg" alt="Bakku office">
                             </div>
 
                             <div class="block work-contact in-view">
@@ -1546,5 +1566,5 @@
     <script src="js/splash/anime.min.js"></script>
     <script src="js/splash/demo1.js"></script>
     <script src="js/bundle.js"></script>
-</body> 
+</body>
 </html>
