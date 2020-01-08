@@ -380,7 +380,7 @@ a.slide-nav {
     width:200px;
     height:97.5px;
 
-    &.hidden {opacity:0;}
+    &.hidden {opacity:0;z-index:-1;}
 
     .scroll {
         display: block;
@@ -2461,6 +2461,7 @@ a.slide-nav {
                     }
                 }
 
+
                 .browser {
                     height:80vh;
                     overflow-y: scroll;
@@ -2469,6 +2470,7 @@ a.slide-nav {
                     @include box-shadow(0 0 5px 0 rgba(0,0,0,.1));
 
                     img {
+                        border-radius: 10px;
                         width: 100%;
                         display: block;
                         position: absolute;
@@ -2552,7 +2554,7 @@ a.slide-nav {
                     width:50%;
                     margin-bottom:60px;
 
-                    h1,h2,h3,h4,p {
+                    .h1,.h2,.h3,.h4,.p {
                         text-overflow: ellipsis;
                         overflow: hidden;
                         white-space: nowrap;
@@ -2717,25 +2719,25 @@ a.slide-nav {
 
             &.work-branding {
                 .fonts {
-                    h1 {
+                    .h1 {
                         font-family: 'ProximaNova-Semibold', $font-fallback;
                         font-style: normal;
                         font-weight: normal;
                         font-size:42px;
                     }
-                    h2 {
+                    .h2 {
                         font-family: 'ProximaNova-Semibold', $font-fallback;
                         font-style: normal;
                         font-weight: normal;
                         font-size:30px;
                     }
-                    h3 {
+                    .h3 {
                         font-family: 'ProximaNova-Semibold', $font-fallback;
                         font-style: normal;
                         font-weight: normal;
                         font-size:24px;
                     }
-                    p {
+                    .p {
                         font-family: 'ProximaNova-Light', $font-fallback;
                         font-style: normal;
                         font-weight: normal;
@@ -2765,27 +2767,27 @@ a.slide-nav {
 
             &.work-branding {
                 .fonts {
-                    h1 {
+                    .h1 {
                         font-family: 'Rajdhani', $font-fallback;
                         font-style: normal;
                         font-weight: 600;
                         font-size:70px;
                         text-transform: uppercase;
                     }
-                    h2 {
+                    .h2 {
                         font-family: 'Rajdhani', $font-fallback;
                         font-style: normal;
                         font-weight: 600;
                         font-size:60px;
                         text-transform: uppercase;
                     }
-                    h3 {
+                    .h3 {
                         font-family: 'Rajdhani', $font-fallback;
                         font-style: normal;
                         font-weight: 600;
                         font-size:48px;
                     }
-                    p {
+                    .p {
                         font-family: 'Rajdhani', $font-fallback;
                         font-style: normal;
                         font-weight: 400;
@@ -2816,25 +2818,25 @@ a.slide-nav {
 
             &.work-branding {
                 .fonts {
-                    h1 {
+                    .h1 {
                         font-family: 'ProximaNovaT-Thin', $font-fallback;
                         font-style: normal;
                         font-weight: normal;
                         font-size:62px;
                     }
-                    h2 {
+                    .h2 {
                         font-family: 'ProximaNova-Semibold', $font-fallback;
                         font-style: normal;
                         font-weight: normal;
                         font-size:30px;
                     }
-                    h3 {
+                    .h3 {
                         font-family: 'ProximaNova-Semibold', $font-fallback;
                         font-style: normal;
                         font-weight: normal;
                         font-size:24px;
                     }
-                    p {
+                    .p {
                         font-family: 'ProximaNova-Light', $font-fallback;
                         font-style: normal;
                         font-weight: normal;
@@ -2864,28 +2866,28 @@ a.slide-nav {
 
             &.work-branding {
                 .fonts {
-                    h1 {
+                    .h1 {
                         font-family: 'ProximaNova-Semibold', $font-fallback;
                         font-style: normal;
                         font-weight: normal;
                         font-size:22px;
                         letter-spacing: .035em;
                     }
-                    h2 {
+                    .h2 {
                         font-family: 'ProximaNova-Semibold', $font-fallback;
                         font-style: normal;
                         font-weight: normal;
                         font-size:20px;
                         letter-spacing: .035em;
                     }
-                    h3 {
+                    .h3 {
                         font-family: 'ProximaNova-Semibold', $font-fallback;
                         font-style: normal;
                         font-weight: normal;
                         font-size:16px;
                         letter-spacing: .035em;
                     }
-                    p {
+                    .p {
                         font-family: 'ProximaNova-Light', $font-fallback;
                         font-style: normal;
                         font-weight: normal;
@@ -2916,25 +2918,25 @@ a.slide-nav {
 
             &.work-branding {
                 .fonts {
-                    h1 {
+                    .h1 {
                         font-family: 'ProximaNovaT-Thin', $font-fallback;
                         font-style: normal;
                         font-weight: normal;
                         font-size:62px;
                     }
-                    h2 {
+                    .h2 {
                         font-family: 'ProximaNova-Semibold', $font-fallback;
                         font-style: normal;
                         font-weight: normal;
                         font-size:30px;
                     }
-                    h3 {
+                    .h3 {
                         font-family: 'ProximaNova-Semibold', $font-fallback;
                         font-style: normal;
                         font-weight: normal;
                         font-size:24px;
                     }
-                    p {
+                    .p {
                         font-family: 'ProximaNova-Light', $font-fallback;
                         font-style: normal;
                         font-weight: normal;
@@ -2969,25 +2971,25 @@ a.slide-nav {
 
             &.work-branding {
                 .fonts {
-                    h1 {
+                    .h1 {
                         font-family: 'ProximaNovaA-Semibold', $font-fallback;
                         font-style: normal;
                         font-weight: normal;
                         font-size:20px;
                     }
-                    h2 {
+                    .h2 {
                         font-family: 'ProximaNovaA-Semibold', $font-fallback;
                         font-style: normal;
                         font-weight: normal;
                         font-size:18px;
                     }
-                    h3 {
+                    .h3 {
                         font-family: 'ProximaNovaA-Semibold', $font-fallback;
                         font-style: normal;
                         font-weight: normal;
                         font-size:16px;
                     }
-                    p {
+                    .p {
                         font-family: 'ProximaNovaA-Light', $font-fallback;
                         font-style: normal;
                         font-weight: normal;
@@ -3017,7 +3019,7 @@ a.slide-nav {
 
             &.work-branding {
                 .fonts {
-                    h1 {
+                    .h1 {
                         font-family: 'ProximaNova-Regular', $font-fallback;
                         font-style: normal;
                         font-weight: normal;
@@ -3025,21 +3027,21 @@ a.slide-nav {
                         text-transform: uppercase;
                         letter-spacing: .2em;
                     }
-                    h2 {
+                    .h2 {
                         font-family: 'ProximaNova-Regular', $font-fallback;
                         font-style: normal;
                         font-weight: normal;
                         font-size:18px;
                         letter-spacing: .2em;
                     }
-                    h3 {
+                    .h3 {
                         font-family: 'ProximaNova-Regular', $font-fallback;
                         font-style: normal;
                         font-weight: normal;
                         font-size:17px;
                         letter-spacing: .075em;
                     }
-                    p {
+                    .p {
                         font-family: 'ProximaNova-Light', $font-fallback;
                         font-style: normal;
                         font-weight: normal;
@@ -3071,25 +3073,25 @@ a.slide-nav {
 
             &.work-branding {
                 .fonts {
-                    h1 {
+                    .h1 {
                         font-family: 'ProximaNovaT-Thin', $font-fallback;
                         font-style: normal;
                         font-weight: normal;
                         font-size:62px;
                     }
-                    h2 {
+                    .h2 {
                         font-family: 'ProximaNova-Semibold', $font-fallback;
                         font-style: normal;
                         font-weight: normal;
                         font-size:30px;
                     }
-                    h3 {
+                    .h3 {
                         font-family: 'ProximaNova-Semibold', $font-fallback;
                         font-style: normal;
                         font-weight: normal;
                         font-size:24px;
                     }
-                    p {
+                    .p {
                         font-family: 'ProximaNova-Light', $font-fallback;
                         font-style: normal;
                         font-weight: normal;
@@ -3617,6 +3619,8 @@ a.page-nav {
 
     .contact .block ul.socials {right:auto;left:50%;@include transform(translateX(-50%));}
     .contact.active .block ul.socials {bottom:20px;}
+
+    .clients .block h2 {font-size:2.1em;}
 }
 
 @media all and (device-width: 768px) and (device-height: 1024px) and (orientation:portrait) {
