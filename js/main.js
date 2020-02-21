@@ -70,7 +70,7 @@ function debounce(func, wait, immediate) {
 const closeModal = debounce(e => {
     if(currentModal){
         animateScrollTo(0,{
-            elementToScroll: currentModal,
+            elementToScroll: document.getElementById(currentModal),
             cancelOnUserAction: true,
             easing: function (t) { return (--t) * t * t + 1; },
             horizontalOffset: 0,
@@ -79,7 +79,11 @@ const closeModal = debounce(e => {
             speed: 500,
             verticalOffset: 0,
         }).then(hasScrolledToPosition => {
-            MicroModal.close(currentModal.id);
+            // MicroModal.close(currentModal.id);
+          document.getElementById(currentModal).classList.remove("is-open");
+          body.classList.remove('work-detail')
+          mySwiper.keyboard.enable();
+          currentModal = null;
         });
     }
 },1000,true);
@@ -149,21 +153,40 @@ document.querySelectorAll('.modal').forEach(modal => {
     });
 })
 
-MicroModal.init({
-    onShow: modal => {
-        body.classList.add('work-detail')
-        mySwiper.keyboard.disable();
-        modal.querySelector('.empty-block').style.height = window.innerHeight + "px";
-        console.log(modal.querySelector('.empty-block').style.height);
-        currentModal = modal
-    }, // [1]
-    onClose: modal => {
-        body.classList.remove('work-detail')
-        mySwiper.keyboard.enable();
-        currentModal = null;
-    }, // [2]
-    disableScroll: true,
-});
+const projectButtons = document.querySelectorAll(".open-project");
+
+function viewProject(id) {
+  if (currentModal) {
+    document.getElementById(currentModal).classList.remove("is-open");
+  }
+  const modalEl = document.getElementById(id)
+  modalEl.classList.add("is-open");
+  modalEl.querySelector('.empty-block').style.height = window.innerHeight + "px";
+  body.classList.add('work-detail')
+  mySwiper.keyboard.disable();
+  currentModal = id;
+}
+
+for (let button of projectButtons) {
+  button.addEventListener("click", () => {
+    viewProject(button.dataset.micromodalTrigger);
+  });
+}
+// MicroModal.init({
+//     onShow: modal => {
+//         body.classList.add('work-detail')
+//         mySwiper.keyboard.disable();
+//         modal.querySelector('.empty-block').style.height = window.innerHeight + "px";
+//         console.log(modal.querySelector('.empty-block').style.height);
+//         currentModal = modal
+//     }, // [1]
+//     onClose: modal => {
+//         body.classList.remove('work-detail')
+//         mySwiper.keyboard.enable();
+//         currentModal = null;
+//     }, // [2]
+//     disableScroll: true,
+// });
 
 var simulateTouch = false;
 
