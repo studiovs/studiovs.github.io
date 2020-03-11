@@ -10,32 +10,6 @@ $base: rgba(2,39,66, 1); /* 022742 */
 $blue: rgba(0,126,255,1); /* 007eff */  
 
 
-
-
-/*/  TEMPORARY AWARD BADGES  /////////////////////////////////////////////////////////////////*/
-
-a.cssda-award {
-    display: block;
-    text-decoration: none;
-    outline:none;
-    width:92px;
-    height:92px;
-    display: block;
-    position: absolute;
-    bottom:40px;
-    right:40px;
-    @include transform (rotate(-10deg));
-    @include transition(transform .3s ease);
-
-    img {width:100%;display:block;}
-
-    &:hover {
-        @include transform (rotate(-18deg));
-    }
-}
-
-
-
 /*/  BASE  /////////////////////////////////////////////////////////////////*/
 
 * { @include box-sizing(border-box); outline:none;-webkit-backface-visibility: hidden;}
@@ -3446,8 +3420,6 @@ a.page-nav {
     .work-detail .work-content .block.work-slider .wrapper {padding-bottom:40px;}
     .work-detail .work-content .block.work-slider ul.macbook-pagination li a {padding:3px;width:14px;height:14px;}
     .work-detail .work-content .block.work-slider ul.macbook-pagination li a span {width:8px;height:8px;}
-
-    a.cssda-award {width:74px;height:74px;bottom:20px;right:20px;}
 }
 
 @media screen and (max-width:767px) {
@@ -3540,11 +3512,7 @@ a.page-nav {
     .work-detail .work-content a.logo.overlay {display: none;}
 
     .modal {display: none;}
-    .modal.is-open {display: block;}
-
-
-    a.cssda-award {width:64px;height:64px;bottom:15px;right:15px;}
-    
+    .modal.is-open {display: block;} 
 }
 
 @media screen and (max-width:767px) and (orientation:portrait) {
