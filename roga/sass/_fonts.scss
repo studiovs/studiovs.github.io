@@ -1,0 +1,211 @@
+
+
+
+@import url('https://fonts.googleapis.com/css?family=Rubik:300,400,500&display=swap');
+
+
+// ------------------------------------------------------------
+// FUTURA PT
+// ------------------------------------------------------------
+
+
+@font-face {
+    font-family: 'Futura PT Light';
+    src: url('../fonts/webfonts/FuturaPT-Light.eot');
+    src: local('Futura PT Light'), local('FuturaPT-Light'),
+        url('../fonts/webfonts/FuturaPT-Light.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/webfonts/FuturaPT-Light.woff') format('woff'),
+        url('../fonts/webfonts/FuturaPT-Light.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Futura PT Book';
+    src: url('../fonts/webfonts/FuturaPT-Book.eot');
+    src: local('Futura PT Book'), local('FuturaPT-Book'),
+        url('../fonts/webfonts/FuturaPT-Book.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/webfonts/FuturaPT-Book.woff') format('woff'),
+        url('../fonts/webfonts/FuturaPT-Book.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Futura PT Medium';
+    src: url('../fonts/webfonts/FuturaPT-Medium.eot');
+    src: local('Futura PT Medium'), local('FuturaPT-Medium'),
+        url('../fonts/webfonts/FuturaPT-Medium.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/webfonts/FuturaPT-Medium.woff') format('woff'),
+        url('../fonts/webfonts/FuturaPT-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Futura PT Demi';
+    src: url('../fonts/webfonts/FuturaPT-Demi.eot');
+    src: local('Futura PT Demi'), local('FuturaPT-Demi'),
+        url('../fonts/webfonts/FuturaPT-Demi.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/webfonts/FuturaPT-Demi.woff') format('woff'),
+        url('../fonts/webfonts/FuturaPT-Demi.ttf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+}
+
+
+@font-face {
+    font-family: 'Futura PT Heavy';
+    src: url('../fonts/webfonts/FuturaPT-Heavy.eot');
+    src: local('Futura PT Heavy'), local('FuturaPT-Heavy'),
+        url('../fonts/webfonts/FuturaPT-Heavy.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/webfonts/FuturaPT-Heavy.woff') format('woff'),
+        url('../fonts/webfonts/FuturaPT-Heavy.ttf') format('truetype');
+    font-weight: 900;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Futura PT Bold';
+    src: url('../fonts/webfonts/FuturaPT-Bold.eot');
+    src: local('Futura PT Bold'), local('FuturaPT-Bold'),
+        url('../fonts/webfonts/FuturaPT-Bold.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/webfonts/FuturaPT-Bold.woff') format('woff'),
+        url('../fonts/webfonts/FuturaPT-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Futura PT Extrabold';
+    src: url('../fonts/webfonts/FuturaPT-ExtraBold.eot');
+    src: local('Futura PT Extra Bold'), local('FuturaPT-ExtraBold'),
+        url('../fonts/webfonts/FuturaPT-ExtraBold.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/webfonts/FuturaPT-ExtraBold.woff') format('woff'),
+        url('../fonts/webfonts/FuturaPT-ExtraBold.ttf') format('truetype');
+    font-weight: 800;
+    font-style: normal;
+}
+
+
+
+// ------------------------------------------------------------
+// Icon Fonts
+// ------------------------------------------------------------
+
+
+@font-face {
+  font-family: 'icomoon';
+  src:  url('../fonts/icomoon.eot?qbxoml');
+  src:  url('../fonts/icomoon.eot?qbxoml#iefix') format('embedded-opentype'),
+    url('../fonts/icomoon.ttf?qbxoml') format('truetype'),
+    url('../fonts/icomoon.woff?qbxoml') format('woff'),
+    url('../fonts/icomoon.svg?qbxoml#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-delete:before {
+  content: "\e91c";
+}
+.icon-add:before {
+  content: "\e900";
+}
+.icon-arrow-down:before {
+  content: "\e901";
+}
+.icon-arrow-left:before {
+  content: "\e902";
+}
+.icon-arrow-long-down:before {
+  content: "\e903";
+}
+.icon-arrow-long-left:before {
+  content: "\e904";
+}
+.icon-arrow-long-right:before {
+  content: "\e905";
+}
+.icon-arrow-long-up:before {
+  content: "\e906";
+}
+.icon-arrow-right:before {
+  content: "\e907";
+}
+.icon-arrow-up:before {
+  content: "\e908";
+}
+.icon-camera:before {
+  content: "\e909";
+}
+.icon-email:before {
+  content: "\e90a";
+}
+.icon-facebook:before {
+  content: "\e90b";
+}
+.icon-file-upload:before {
+  content: "\e90c";
+}
+.icon-instagram:before {
+  content: "\e90d";
+}
+.icon-linkedin:before {
+  content: "\e90e";
+}
+.icon-lock:before {
+  content: "\e90f";
+}
+.icon-minus:before {
+  content: "\e910";
+}
+.icon-phone:before {
+  content: "\e911";
+}
+.icon-photo-library:before {
+  content: "\e912";
+}
+.icon-pin-map:before {
+  content: "\e913";
+}
+.icon-play:before {
+  content: "\e914";
+}
+.icon-refresh:before {
+  content: "\e915";
+}
+.icon-search:before {
+  content: "\e916";
+}
+.icon-thumbs-down:before {
+  content: "\e917";
+}
+.icon-thumbs-up:before {
+  content: "\e918";
+}
+.icon-twitter:before {
+  content: "\e919";
+}
+.icon-user-small:before {
+  content: "\e91a";
+}
+.icon-zoom:before {
+  content: "\e91b";
+}
+
