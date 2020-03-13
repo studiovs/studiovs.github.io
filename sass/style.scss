@@ -10,6 +10,11 @@ $base: rgba(2,39,66, 1); /* 022742 */
 $blue: rgba(0,126,255,1); /* 007eff */  
 
 
+
+#awwwards {@include transform(scale(0.8));right:-8px !important;}
+
+
+
 /*/  BASE  /////////////////////////////////////////////////////////////////*/
 
 * { @include box-sizing(border-box); outline:none;-webkit-backface-visibility: hidden;}
@@ -3512,7 +3517,9 @@ a.page-nav {
     .work-detail .work-content a.logo.overlay {display: none;}
 
     .modal {display: none;}
-    .modal.is-open {display: block;} 
+    .modal.is-open {display: block;}
+
+    #awwwards {@include transform(scale(0.7));right:-8px !important;}
 }
 
 @media screen and (max-width:767px) and (orientation:portrait) {
