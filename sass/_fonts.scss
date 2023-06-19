@@ -1,0 +1,132 @@
+
+// ------------------------------------------------------------
+// Google Fonts
+// ------------------------------------------------------------
+
+@import url('https://fonts.googleapis.com/css?family=Montserrat:600,700,800&display=swap');
+
+@import url('https://fonts.googleapis.com/css?family=Rajdhani:300,400,500,600,700&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+
+// ------------------------------------------------------------
+// Icon Fonts
+// ------------------------------------------------------------
+
+@font-face {
+  font-family: 'icomoon';
+  src:  url('../fonts/icomoon.eot?6tkk25');
+  src:  url('../fonts/icomoon.eot?6tkk25#iefix') format('embedded-opentype'),
+    url('../fonts/icomoon.ttf?6tkk25') format('truetype'),
+    url('../fonts/icomoon.woff?6tkk25') format('woff'),
+    url('../fonts/icomoon.svg?6tkk25#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-add:before {
+  content: "\e901";
+}
+.icon-arrow-down:before {
+  content: "\e902";
+}
+.icon-arrow-left:before {
+  content: "\e903";
+}
+.icon-arrow-long-down:before {
+  content: "\e904";
+}
+.icon-arrow-long-left:before {
+  content: "\e905";
+}
+.icon-arrow-long-right:before {
+  content: "\e906";
+}
+.icon-arrow-long-up:before {
+  content: "\e907";
+}
+.icon-arrow-right:before {
+  content: "\e908";
+}
+.icon-arrow-up:before {
+  content: "\e909";
+}
+.icon-check:before {
+  content: "\e90a";
+}
+.icon-delete-thin:before {
+  content: "\e90b";
+}
+.icon-delete:before {
+  content: "\e90c";
+}
+.icon-edit:before {
+  content: "\e90d";
+}
+.icon-email:before {
+  content: "\e90e";
+}
+.icon-eye:before {
+  content: "\e90f";
+}
+.icon-facebook:before {
+  content: "\e910";
+}
+.icon-heart-solid:before {
+  content: "\e911";
+}
+.icon-heart:before {
+  content: "\e912";
+}
+.icon-instagram:before {
+  content: "\e913";
+}
+.icon-linkedin:before {
+  content: "\e914";
+}
+.icon-phone:before {
+  content: "\e915";
+}
+.icon-play:before {
+  content: "\e916";
+}
+.icon-twitter:before {
+  content: "\e917";
+}
+.icon-logo-studiovs-splash-dark:before {
+  content: "\e900";
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
